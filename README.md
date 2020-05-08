@@ -1,4 +1,4 @@
 # PAD2-Projekt
 Aufgabe 2 (Routenplanung) von Hamouda, Targonskas und Shehadeh
 
-Testing Commit
+Das Projekt ist im Folder PAD_Salesman gespeichert. 
