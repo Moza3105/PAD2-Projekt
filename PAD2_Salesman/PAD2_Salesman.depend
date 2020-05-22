@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1590164639 source:c:\users\hamza\desktop\uni\pad\salesman_projekt\pad2_salesman\main.c
+	<stdio.h>
+	<stdlib.h>
+	"libhello.h"
+
+1590164579 c:\users\hamza\desktop\uni\pad\salesman_projekt\pad2_salesman\libhello.h
+

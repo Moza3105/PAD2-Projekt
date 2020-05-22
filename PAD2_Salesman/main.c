@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "libsalesman.h"
 
 int main()
 {
-    printf("Hello world!\n");
+    printf("Hallo! Das ist das Testprogramm!\n");
     return 0;
 }
