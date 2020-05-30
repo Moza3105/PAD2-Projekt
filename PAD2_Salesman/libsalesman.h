@@ -1,6 +1,7 @@
 #include <string.h>
 
-typedef struct City{
+typedef struct City
+{
     char*  name;
     char* ascii;
     float lat;
@@ -12,7 +13,7 @@ typedef struct City{
     char* capital;
     int population;
     int id;
-}city;
+} city;
 
 
 city makecity(char* name, char* ascii, float lat, float lng, char* country, char* iso2, char* iso3, char* adminname, char* capital, int population, int id)
@@ -38,7 +39,7 @@ city printcity(city tmp)
     return tmp;
 }
 
-city* selectionsort(city* array, int length)
+city* selectionsort(city* array, int length, char mode)
 {
 
 
@@ -48,49 +49,80 @@ city* selectionsort(city* array, int length)
     int* value = malloc(length*sizeof(array[0]));
     char* tmp;
 
-    for(int i = 0; i<length; i++)
+    if(mode=='n')
     {
+        for(int i = 0; i<length; i++)
+        {
 
-        tmp = array[i].name;
+            tmp = array[i].name;
             //printf("%c", tmp[0]);
-        for(int j = 0; j < 26; j++)
+            for(int j = 0; j < 26; j++)
+            {
+
+                if(tmp[0]==alphabet[j])
+                {
+                    //printf("%d  ", j);
+                    value[i]=j;
+                    break;
+                }
+                else if(j==25)
+                {
+                    //printf("%d  ", 27);
+                    value[i]=27;
+                }
+            }
+
+        }
+        for(int j = 0; j<length; j++)
         {
 
-            if(tmp[0]==alphabet[j])
+            min=j;
+
+            for(int i = j; i<length; i++)
             {
-                //printf("%d  ", j);
-                value[i]=j;
-                break;
+                if(value[i]<value[min])
+                {
+                    min = i;
+                }
             }
-            else if(j==25)
-            {
-                //printf("%d  ", 27);
-                value[i]=27;
-            }
+            placeholdercity = array[j];
+            array[j]=array[min];
+            array[min]= placeholdercity;
+            value[min]=value[j];
+
         }
-
+        printf("Sorted using Selection-Sort! ;-)  --Alphabetical order\n");
     }
-
-    for(int j = 0; j<length; j++)
+    else if(mode=='p')
     {
-
-        min=j;
-
-        for(int i = j; i<length; i++)
+        for(int j = 0; j<length; j++)
         {
-            if(value[i]<value[min])
-            {
-                min = i;
-            }
-        }
-        placeholdercity = array[j];
-        array[j]=array[min];
-        array[min]= placeholdercity;
-        value[min]=value[j];
 
+            min=j;
+
+            for(int i = j; i<length; i++)
+            {
+                if(array[i].population>array[min].population)
+                {
+                    min = i;
+                }
+            }
+            placeholdercity = array[j];
+            array[j]=array[min];
+            array[min]= placeholdercity;
+
+        }
+        printf("Sorted using Selection-Sort! ;-)  --max. Population to min.\n");
+    }
+    else
+    {
+        printf("Attempted Selection-Sort: Wrong mode selected! Array not sorted!\n");
     }
 
-    printf("Sorted using Selection-Sort! ;-)\n");
+
+
+
+
     return array;
 }
 //nicht benutzt aber vlt hilfreich
@@ -108,13 +140,14 @@ void makearray(FILE *myfile)
     fseek(myfile, 3, SEEK_SET);
 
 
-    while(1) {
-    c = fgetc(myfile);
-
-    if( feof(myfile) )
+    while(1)
     {
-        break ;
-    }
+        c = fgetc(myfile);
+
+        if( feof(myfile) )
+        {
+            break ;
+        }
 
         if(c=='\n')
         {
@@ -159,21 +192,21 @@ void makearray(FILE *myfile)
 
 
 
-        //printf("\n%s --ln:%d\n", str, l);
-        printf("citysize*l:%d\n", l*sizeof(city));
-        realloc(str, (1)*sizeof(char));
+            //printf("\n%s --ln:%d\n", str, l);
+            printf("citysize*l:%d\n", l*sizeof(city));
+            realloc(str, (1)*sizeof(char));
 
-        unsorted = (city*) realloc(unsorted,l*sizeof(city));
-        if (unsorted == NULL)
-        {
-            printf("NOOOOOO!!!");
-            return -1;
-        }
+            unsorted = (city*) realloc(unsorted,l*sizeof(city));
+            if (unsorted == NULL)
+            {
+                printf("NOOOOOO!!!");
+                return -1;
+            }
 
-        //printf("unsorted: %d\n",(sizeof(unsorted[7000])));
+            //printf("unsorted: %d\n",(sizeof(unsorted[7000])));
 
-        printf("check\n");
-        l++;
+            printf("check\n");
+            l++;
 
 
 
@@ -184,9 +217,9 @@ void makearray(FILE *myfile)
         str = (char *) realloc(str, (j+2)*sizeof(char));
         j++;
 
-   }
+    }
 
-   free(str);
+    free(str);
 
 
 

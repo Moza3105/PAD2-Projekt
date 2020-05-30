@@ -20,7 +20,7 @@ int main()
     // define 19 cities
     {
 
-    cities[0] = makecity("Wien","ABCD",0,90,"Austria","2er","3er","adminland","Vienna",8000000,12345678);
+    cities[0] = makecity("Wien","ABCD",0,90,"Austria","2er","3er","adminland","Vienna",1200000,12345678);
     cities[1] = makecity("Tokyo","Tokyo",35.6850,139.7514,"Japan","JP","JPN","Tōkyō","primary",35676000,1392685764);
     cities[2] = makecity("New York","New York",40.6943,-73.9249,"United States","US","USA","New York","",19354922.0,1840034016);
     cities[3] = makecity("Mexico City","Mexico City",19.4424,-99.1310,"Mexico","MX","MEX","Ciudad de México","primary",19028000,1484247881);
@@ -49,8 +49,12 @@ int main()
     }
 
     printf("\n--------\n");
-
-     sortedcities = selectionsort(cities,number);
+    //cities: array of cities to be sorted
+    //number: items in the array
+    //'p','n' modes for population and name
+     sortedcities = selectionsort(cities,number,'p');
+     sortedcities = selectionsort(cities,number,'n');
+     sortedcities = selectionsort(cities,number,'l');
 
     printf("--------\n\n");
 
