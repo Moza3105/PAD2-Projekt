@@ -98,7 +98,7 @@ city search(FILE* myfile)
             anfang[i]=tolower(anfang[i]);
 
         }
-        printf("%s\n",anfang);
+
 
 
 
@@ -167,8 +167,7 @@ city search(FILE* myfile)
 
                 if(good==1)
                 {
-                    //printf("%s",str);
-                    //printf("  --< %d\n",l);
+
 
 
                     size_t len = strlen(str);
@@ -241,7 +240,7 @@ city search(FILE* myfile)
                             break;
 
                         default:
-                            printf("heeelp");
+
                             break;
 
 
@@ -539,4 +538,23 @@ void minimum_cost(city* array, int number)
     printf("Von: %s\tNach:%s\tkm:%f  \n\n",array[lastplace].name,array[0].name,matrix[lastplace][0]);
     printf("Insgesamt gefahrene Kilometer: %f\n",sum);
 
+}
+
+void getfirstcity(city* array, int number)
+{
+    int selection;
+    city tmp;
+    printf("Wo soll die Fahrt losgehen?  (tippen Sie die Zahl ein)\n\n");
+    for(int i = 0; i<number; i++)
+    {
+        printf("%d:\t",i+1);
+        printcity(array[i]);
+    }
+    scanf("%d", &selection);
+    if(selection>0&&selection<=number)
+    {
+        tmp = array[0];
+        array[0]=array[selection-1];
+        array[selection-1] = tmp;
+    }
 }

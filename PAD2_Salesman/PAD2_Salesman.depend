@@ -1,12 +1,12 @@
 # depslib dependency file v1.0
-1591309075 source:c:\users\hamza\desktop\uni\pad\salesman_projekt\pad2_salesman\main.c
+1591356987 source:c:\users\hamza\desktop\uni\pad\salesman_projekt\pad2_salesman\main.c
 	<stdio.h>
 	<stdlib.h>
 	"libsalesman.h"
 
 1590164579 c:\users\hamza\desktop\uni\pad\salesman_projekt\pad2_salesman\libhello.h
 
-1591309039 c:\users\hamza\desktop\uni\pad\salesman_projekt\pad2_salesman\libsalesman.h
+1591356899 c:\users\hamza\desktop\uni\pad\salesman_projekt\pad2_salesman\libsalesman.h
 	<string.h>
 	<math.h>
 	<ctype.h>

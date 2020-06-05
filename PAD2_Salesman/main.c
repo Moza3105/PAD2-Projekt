@@ -39,6 +39,7 @@ int main()
     {
         printf("Geben Sie hierfuer die ersten paar Buchstaben ihrer gesuchten Stadt ein. \nWaehlen Sie dann Ihre gewuenschte Stadt aus der Liste. \nDies koennen Sie beliebig oft machen, um neue Staedte hinzuzufuegen. Wenn Sie fertig sind, druecken Sie die LEERTASTE.\n\n");
         cities[nummer] = search(worldcities);
+        printf("Ihre Auswahle:\t");
         printcity(cities[nummer]);
         printf("\n");
         printf("Wollen Sie eine weiter Stadt ausweahlen?\nJa (j),  Nein (n)\n");
@@ -86,7 +87,6 @@ int main()
         {
             printf("\nSoll nach den Namen oder der Einwohnerzahl sortiert werden?\nNames (n)\nPopulation (p)\n");
             scanf(" %c", &selection);
-            //nummer = 19;
             sortedcities = bubblesort(cities,nummer,selection);
             printf("\n-------------------------------------------------------------------------------\n");
             for(int i = 0; i<nummer; i++)
@@ -112,7 +112,7 @@ int main()
 
 
 
-
+    getfirstcity(cities,nummer);
     CreateCostMatrix(cities,nummer);
     printf("\n\nAlles klar. So sieht ihr schnellster Weg aus:\n\n");
     minimum_cost(cities,nummer);
