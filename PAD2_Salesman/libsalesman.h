@@ -100,9 +100,6 @@ city search(FILE* myfile)
         }
 
 
-
-
-
         int good=1;
         int j=0;
         int l=1;
@@ -509,10 +506,6 @@ void minimum_cost(city* array, int number)
         }
         for(int i = 0; i<number; i++)
         {
-
-
-
-
 
             if((matrix[h][i]!=0)&&(visited[i]!=1))
             {
