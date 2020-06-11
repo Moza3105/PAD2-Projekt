@@ -37,7 +37,7 @@ int main()
     //Ablauf
     for(nummer; nummer<=MAX; nummer++)
     {
-        printf("Geben Sie hierfuer die ersten paar Buchstaben ihrer gesuchten Stadt ein. \nWaehlen Sie dann Ihre gewuenschte Stadt aus der Liste. \nDies koennen Sie beliebig oft machen, um neue Staedte hinzuzufuegen. Wenn Sie fertig sind, druecken Sie die LEERTASTE.\n\n");
+        printf("Geben Sie hierfuer die ersten paar Buchstaben ihrer gesuchten Stadt ein. \nWaehlen Sie dann Ihre gewuenschte Stadt aus der Liste. \nDies koennen Sie beliebig oft machen, um neue Staedte hinzuzufuegen.\n\n");
         cities[nummer] = search(worldcities);
         printf("Ihre Auswahle:\t");
         printcity(cities[nummer]);
